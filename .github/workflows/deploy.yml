@@ -1,23 +1,24 @@
-name: 🚀 Deploy rock3t-child Theme
+name: 🚀 Deploy rock3t-child Theme (SFTP)
 on:
   push:
     branches:
       - main
 
 jobs:
-  ftp-deploy:
-    name: Deploy via FTP
+  sftp-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      - name: Deploy via SFTP
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASS }}
-          server-dir: ${{ secrets.FTP_DIR }}/
-          local-dir: rock3t-child/
-          dry-run: false
+          server: ${{ secrets.SFTP_SERVER }}
+          username: ${{ secrets.SFTP_USER }}
+          password: ${{ secrets.SFTP_PASS }}
+          port: 22
+          local_path: "rock3t-child/*"
+          remote_path: ${{ secrets.SFTP_DIR }}
+          delete_remote_files: false
+          sftp_only: true
