@@ -20,4 +20,4 @@ jobs:
           password: ${{ secrets.FTP_PASS }}
           server-dir: ${{ secrets.FTP_DIR }}/
           local-dir: rock3t-child/
-          dry-run: false 
+          dry-run: false
