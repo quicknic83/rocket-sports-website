@@ -18,6 +18,6 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASS }}
-          server-dir: ${{ secrets.FTP_DIR }}
+          server-dir: ${{ secrets.FTP_DIR }}/
           local-dir: rock3t-child/
           dry-run: false 
